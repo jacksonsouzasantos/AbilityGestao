@@ -255,15 +255,14 @@
                 <div class="col-md-6 mx-auto text-center">
                     <h2>Veja nossos Planos</h2>
                     <div class="divider bg-primary mx-auto"></div>
-                    <a href="https://drive.google.com/file/d/1XNus8IvtxT3U-8tlayAteaDCJ7sASjYf/view?usp=sharing"
-                        target="_blank" download="propostaeplanos.pdf" type="applicaticon/pdf">
-                        <button class="border-box btn-secondary">Abrir PDF</button>
-                    </a>
+                    <!-- Botão para abrir o PDF em uma nova aba -->
+                    <button class="border-box btn-secondary" onclick="openPdf()">Abrir Planos</button>
                     <h6 class="text-muted lead">
                         Baixe o PDF e confira nossos planos. <br> Qualquer dúvida entre em contato.
                     </h6>
                 </div>
             </div>
+        </div>
     </section>
     <!--blog section-->
     <section class="py-6 bg-light" id="blog">
@@ -330,18 +329,12 @@
                     <form>
                         <div class="container">
                             <div class="row justify-content-md-center">
-                                <iframe id="googleForm" width="640" height="1000">
-                                    <!-- Conteúdo de fallback enquanto o iframe está carregando -->
-                                    <div style="text-align: center; font-size: 18px; padding: 20px;">
-                                        Carregando...
-                                    </div>
-                                </iframe>
+                                <iframe id="googleForm" width="640" height="1000"></iframe>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -433,6 +426,14 @@
     <!-- Google tag Form (gtag.js) -->
     <script>
         document.getElementById('googleForm').src = 'https://docs.google.com/forms/d/e/1FAIpQLScuvwmomAfg1nJyp5-KibGs0YYlm3fjVMWJIFKD7p8heB1gGg/viewform?embedded=true';
+    </script>
+    <!-- Link PDF -->
+    <script>
+        function openPdf() {
+            // Substitua "COLE_AQUI_O_SEU_LINK_DO_GOOGLE_DRIVE" pelo link real do Google Drive
+            var pdfLink = "https://drive.google.com/file/d/1XNus8IvtxT3U-8tlayAteaDCJ7sASjYf/view?usp=sharing";
+            window.open(pdfLink, '_blank');
+        }
     </script>
 </body>
 
