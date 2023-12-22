@@ -251,26 +251,32 @@
     <!--Planos section-->
     <section class="py-4 bg-light mb-5" id="planos">
         <div class="container">
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-6 mx-auto text-center">
                     <h2>Veja nossos Planos</h2>
                     <div class="divider bg-primary mx-auto"></div>
-                    <!-- <a href="/asents/propostaeplanos.pdf" target="_blank" download="propostaeplanos.pdf"
-                        type="applicaticon/pdf"> -->
-                        <!-- <button class="border-box btn-secondary">Planos</button> -->
-                    <!-- </a> -->
-                    <ul>
-                        <li>
-                            <a href="/asents/propostaeplanos.pdf" target="_blank" download="propostaeplanos.pdf"
-                                type="applicaticon/pdf">Planos
-                            </a>
-                        </li>
-                    </ul>
+                    <a href="/asents/propostaeplanos.pdf" target="_blank" download="propostaeplanos.pdf"
+                        type="applicaticon/pdf">
+                        <button class="border-box btn-secondary">Planos</button>
+                     </a>
                     <h6 class="text-muted lead">
                         Baixe o PDF e confira nossos planos. <br> Qualquer dúvida entre em contato.
                     </h6>
                 </div>
-            </div>
+            </div> -->
+            <div class="row">
+                <div class="col-md-6 mx-auto text-center">
+                    <h2>Veja nossos Planos</h2>
+                    <div class="divider bg-primary mx-auto"></div>
+                    <button id="openPdfButton" class="border-box btn-secondary">Abrir PDF</button>
+                    <h6 class="text-muted lead">
+                        Baixe o PDF e confira nossos planos. <br> Qualquer dúvida entre em contato.
+                    </h6>
+                </div>
+            </div> 
+            <div id="pdfContainer" style="display: none;">
+                <iframe id="pdfIframe" width="100%" height="600"></iframe>
+            </div>                  
         </div>
     </section>
     <!--blog section-->
@@ -338,13 +344,18 @@
                     <form>
                         <div class="container">
                             <div class="row justify-content-md-center">
-                                <iframe id="googleForm" width="640" height="1000">Carregando…
+                                <iframe id="googleForm" width="640" height="1000">
+                                    <!-- Conteúdo de fallback enquanto o iframe está carregando -->
+                                    <div style="text-align: center; font-size: 18px; padding: 20px;">
+                                        Carregando...
+                                    </div>
                                 </iframe>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
+            
         </div>
     </section>
 
@@ -433,9 +444,26 @@
         gtag('config', 'G-W7M1SELV0S');
     </script> -->
 
+    <!-- Google tag Form (gtag.js) -->
     <script>
         document.getElementById('googleForm').src = 'https://docs.google.com/forms/d/e/1FAIpQLScuvwmomAfg1nJyp5-KibGs0YYlm3fjVMWJIFKD7p8heB1gGg/viewform?embedded=true';
     </script> 
+
+<!-- Script para abrir o PDF -->
+<script>
+    // Referência ao elemento DOM do botão
+    const openPdfButton = document.getElementById('openPdfButton');
+
+    // URL do seu PDF
+    const pdfUrl = '/asents/propostaeplanos.pdf';
+
+    // Manipula o clique no botão
+    openPdfButton.addEventListener('click', function() {
+        // Abre o PDF em outra aba
+        window.open(pdfUrl, '_blank');
+    });
+</script>
+
 
 </body>
 
